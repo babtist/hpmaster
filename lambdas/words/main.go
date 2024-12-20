@@ -174,7 +174,7 @@ func getPoorPerformanceWords(userID string, limit int) ([]Word, error) {
 		ExpressionAttributeValues: map[string]*dynamodb.AttributeValue{
 			":userId": {S: aws.String(userID)},
 		},
-		ScanIndexForward: aws.Bool(true),              // Sort in descending order (poorest first)
+		ScanIndexForward: aws.Bool(true),             // Sort in descending order (poorest first)
 		Limit:            aws.Int64(int64(limit / 2)), // Limit to half of the requested limit for poor performance words
 	}
 
